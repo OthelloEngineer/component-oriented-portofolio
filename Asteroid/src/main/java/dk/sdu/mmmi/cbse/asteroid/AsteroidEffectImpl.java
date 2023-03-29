@@ -1,7 +1,7 @@
 package dk.sdu.mmmi.cbse.asteroid;
 
 import dk.sdu.mmmi.cbse.common.asteroids.Asteroid;
-import dk.sdu.mmmi.cbse.common.asteroids.IAsteroidSplitter;
+import dk.sdu.mmmi.cbse.common.asteroids.IAsteroidEffect;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
@@ -11,7 +11,7 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
    
-public class AsteroidSplitterImpl implements IAsteroidSplitter {
+public class AsteroidEffectImpl implements IAsteroidEffect {
 
     @Override
     public void createSplitAsteroid(Entity e, World world) {
