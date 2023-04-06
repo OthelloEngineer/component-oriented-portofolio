@@ -52,8 +52,6 @@ public class LifePart implements EntityPart {
             return;
         }
         if (isHit) {
-            System.out.println("lifepart is hit");
-            System.out.println("life: " + life);
             this.iFrames = iFrameConstant;
             life -= 1;
         }

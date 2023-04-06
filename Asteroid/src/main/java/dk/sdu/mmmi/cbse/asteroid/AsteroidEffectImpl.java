@@ -20,9 +20,7 @@ public class AsteroidEffectImpl implements IAsteroidEffect {
         MovingPart otherMove = e.getPart(MovingPart.class);
 
         double radians = otherPos.getRadians();
-        System.out.println("asteroid life: " + otherLife.getLife());
         if (otherLife.getLife() <= 0){
-            System.out.println("removing asteroid");
             world.removeEntity(e);
             return;
         }
