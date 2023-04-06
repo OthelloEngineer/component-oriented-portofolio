@@ -11,42 +11,42 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
  
 public class PositionPart implements EntityPart {
 
-    private float x;
-    private float y;
-    private float radians;
+    private double x;
+    private double y;
+    private double radians;
 
-    public PositionPart(float x, float y, float radians) {
+    public PositionPart(double x, double y, double radians) {
         this.x = x;
         this.y = y;
         this.radians = radians;
     }
 
-    public float getX() {
+    public double getX() {
         return x;
     }
 
-    public float getY() {
+    public double getY() {
         return y;
     }
 
-    public float getRadians() {
+    public double getRadians() {
         return radians;
     }
 
-    public void setX(float newX) {
+    public void setX(double newX) {
         this.x = newX;
     }
 
-    public void setY(float newY) {
+    public void setY(double newY) {
         this.y = newY;
     }
 
-    public void setPosition(float newX, float newY) {
+    public void setPosition(double newX, double newY) {
         this.x = newX;
         this.y = newY;
     }
 
-    public void setRadians(float radians) {
+    public void setRadians(double radians) {
         this.radians = radians;
     }
 

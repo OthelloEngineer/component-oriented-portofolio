@@ -10,8 +10,17 @@ public class LifePart implements EntityPart {
     private int life;
     private boolean isHit = false;
 
+    private double iFrameConstant = 5;
+
+    private double iFrames;
+
     public LifePart(int life) {
         this.life = life;
+    }
+
+    public LifePart(int life, double iFrames) {
+        this(life);
+        this.iFrames = iFrames;
     }
 
     public int getLife() {
@@ -36,13 +45,28 @@ public class LifePart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-        if (isHit) {
-            life = - 1;
+        if (iFrames > 0){
+            System.out.println(iFrames);
+            iFrames -= gameData.getDelta();
             isHit = false;
+            return;
+        }
+        if (isHit) {
+            System.out.println("lifepart is hit");
+            System.out.println("life: " + life);
+            this.iFrames = iFrameConstant;
+            life -= 1;
         }
         if (life <= 0) {
             dead = true;
         }
+    }
 
+    public void setIFrameConstant(double iFrameConstant) {
+        this.iFrameConstant = iFrameConstant;
+    }
+
+    public double getIFrames() {
+        return iFrames;
     }
 }

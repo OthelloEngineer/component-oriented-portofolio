@@ -36,14 +36,14 @@ public class AsteroidProcessor implements IEntityProcessingService {
 
             movingPart.process(gameData, asteroid);
             positionPart.process(gameData, asteroid);
-
+            lifePart.process(gameData, asteroid);
             // Split event
             if (lifePart.isHit()) {
                 asteroidSplitter.createSplitAsteroid(asteroid, world);
             }
+            lifePart.setIsHit(false);
             setShape(asteroid, numPoints);
         }
-
     }
     public void setAsteroidSplitter(IAsteroidEffect asteroidSplitter) {
         this.asteroidSplitter = asteroidSplitter;
@@ -55,18 +55,18 @@ public class AsteroidProcessor implements IEntityProcessingService {
 
     private void setShape(Entity entity, int numPoints) {
         PositionPart position = entity.getPart(PositionPart.class);
-        float[] shapex = new float[numPoints];
-        float[] shapey = new float[numPoints];
-        float radians = position.getRadians();
-        float x = position.getX();
-        float y = position.getY();
-        float radius = entity.getRadius();
+        double[] shapex = new double[numPoints];
+        double[] shapey = new double[numPoints];
+        double radians = position.getRadians();
+        double x = position.getX();
+        double y = position.getY();
+        double radius = entity.getRadius();
 
         float angle = 0;
 
         for (int i = 0; i < numPoints; i++) {
-            shapex[i] = x + (float) Math.cos(angle + radians) * radius;
-            shapey[i] = y + (float) Math.sin(angle + radians) * radius;
+            shapex[i] = x + Math.cos(angle + radians) * radius;
+            shapey[i] = y + Math.sin(angle + radians) * radius;
             angle += 2 * 3.1415f / numPoints;
         }
 

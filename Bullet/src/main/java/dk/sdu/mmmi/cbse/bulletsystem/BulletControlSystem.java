@@ -38,36 +38,36 @@ public class BulletControlSystem implements IEntityProcessingService, RunTimeIns
     @Override
     public Entity spawn(PositionPart shooterPart, GameData gameData) {
 
-        float start_x = shooterPart.getX();
-        float start_y = shooterPart.getY();
-        float direction = shooterPart.getRadians();
+        double start_x = shooterPart.getX();
+        double start_y = shooterPart.getY();
+        double direction = shooterPart.getRadians();
         float dt = gameData.getDelta();
         float speed = 350;
 
         Entity bullet = new Bullet();
         bullet.setRadius(2);
 
-        float bx = (float) cos(direction) * 8 * bullet.getRadius();
-        float by = (float) sin(direction) * 8 * bullet.getRadius();
+        double bx = cos(direction) * 8 * bullet.getRadius();
+        double by = sin(direction) * 8 * bullet.getRadius();
 
         bullet.add(new PositionPart(bx + start_x, by + start_y, direction));
         bullet.add(new LifePart(1));
         bullet.add(new MovingPart(0, 999999999, speed, 0));
         bullet.add(new TimerPart(1));
 
-        bullet.setShapeX(new float[2]);
-        bullet.setShapeY(new float[2]);
+        bullet.setShapeX(new double[2]);
+        bullet.setShapeY(new double[2]);
 
         return bullet;
     }
 
     private void setShape(Entity entity) {
-        float[] shapex = entity.getShapeX();
-        float[] shapey = entity.getShapeY();
+        double[] shapex = entity.getShapeX();
+        double[] shapey = entity.getShapeY();
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radians = positionPart.getRadians();
+        double x = positionPart.getX();
+        double y = positionPart.getY();
+        double radians = positionPart.getRadians();
 
         shapex[0] = x;
         shapey[0] = y;

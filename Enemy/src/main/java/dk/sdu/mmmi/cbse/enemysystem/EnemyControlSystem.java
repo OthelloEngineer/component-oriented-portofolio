@@ -54,24 +54,24 @@ public class EnemyControlSystem implements IEntityProcessingService {
     }
 
     private void updateShape(Entity entity) {
-        float[] shapex = new float[4];
-        float[] shapey = new float[4];
+        double[] shapex = new double[4];
+        double[] shapey = new double[4];
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radians = positionPart.getRadians();
+        double x = positionPart.getX();
+        double y = positionPart.getY();
+        double radians = positionPart.getRadians();
 
-        shapex[0] = (float) (x + Math.cos(radians) * entity.getRadius());
-        shapey[0] = (float) (y + Math.sin(radians) * entity.getRadius());
+        shapex[0] = (x + Math.cos(radians) * entity.getRadius());
+        shapey[0] = (y + Math.sin(radians) * entity.getRadius());
 
-        shapex[1] = (float) (x + Math.cos(radians - 4 * 3.1415f / 5) * entity.getRadius());
-        shapey[1] = (float) (y + Math.sin(radians - 4 * 3.1145f / 5) * entity.getRadius());
+        shapex[1] = (x + Math.cos(radians - 4 * 3.1415f / 5) * entity.getRadius());
+        shapey[1] = (y + Math.sin(radians - 4 * 3.1145f / 5) * entity.getRadius());
 
-        shapex[2] = (float) (x + Math.cos(radians + 3.1415f) * entity.getRadius() * 0.5);
-        shapey[2] = (float) (y + Math.sin(radians + 3.1415f) * entity.getRadius() * 0.5);
+        shapex[2] = (x + Math.cos(radians + 3.1415f) * entity.getRadius() * 0.5);
+        shapey[2] = (y + Math.sin(radians + 3.1415f) * entity.getRadius() * 0.5);
 
-        shapex[3] = (float) (x + Math.cos(radians + 4 * 3.1415f / 5) * entity.getRadius());
-        shapey[3] = (float) (y + Math.sin(radians + 4 * 3.1415f / 5) * entity.getRadius());
+        shapex[3] = (x + Math.cos(radians + 4 * 3.1415f / 5) * entity.getRadius());
+        shapey[3] = (y + Math.sin(radians + 4 * 3.1415f / 5) * entity.getRadius());
 
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);

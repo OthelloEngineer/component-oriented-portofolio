@@ -10,9 +10,9 @@ public class Entity implements Serializable {
 
     private final UUID ID = UUID.randomUUID();
 
-    private float[] shapeX = new float[4];
-    private float[] shapeY = new float[4];
-    private float radius;
+    private double[] shapeX = new double[4];
+    private double[] shapeY = new double[4];
+    private double radius;
     private Map<Class, EntityPart> parts;
 
     public Entity() {
@@ -31,11 +31,11 @@ public class Entity implements Serializable {
         return (E) parts.get(partClass);
     }
 
-    public void setRadius(float r) {
+    public void setRadius(double r) {
         this.radius = r;
     }
 
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
 
@@ -43,19 +43,19 @@ public class Entity implements Serializable {
         return ID.toString();
     }
 
-    public float[] getShapeX() {
+    public double[] getShapeX() {
         return shapeX;
     }
 
-    public void setShapeX(float[] shapeX) {
+    public void setShapeX(double[] shapeX) {
         this.shapeX = shapeX;
     }
 
-    public float[] getShapeY() {
+    public double[] getShapeY() {
         return shapeY;
     }
 
-    public void setShapeY(float[] shapeY) {
+    public void setShapeY(double[] shapeY) {
         this.shapeY = shapeY;
     }
 

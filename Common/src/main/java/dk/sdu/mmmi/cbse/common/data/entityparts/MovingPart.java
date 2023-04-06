@@ -14,35 +14,35 @@ import static java.lang.Math.*;
 public class MovingPart
         implements EntityPart {
 
-    private float dx, dy;
-    private float deceleration, acceleration;
-    private float maxSpeed, rotationSpeed;
+    private double dx, dy;
+    private double deceleration, acceleration;
+    private double maxSpeed, rotationSpeed;
     private boolean left, right, up;
 
-    public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
+    public MovingPart(double deceleration, double acceleration, double maxSpeed, double rotationSpeed) {
         this.deceleration = deceleration;
         this.acceleration = acceleration;
         this.maxSpeed = maxSpeed;
         this.rotationSpeed = rotationSpeed;
     }
 
-    public float getDx() {
+    public double getDx() {
         return dx;
     }
 
-    public float getDy() {
+    public double getDy() {
         return dy;
     }
 
-    public void setDeceleration(float deceleration) {
+    public void setDeceleration(double deceleration) {
         this.deceleration = deceleration;
     }
 
-    public void setAcceleration(float acceleration) {
+    public void setAcceleration(double acceleration) {
         this.acceleration = acceleration;
     }
 
-    public void setMaxSpeed(float maxSpeed) {
+    public void setMaxSpeed(double maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 
@@ -51,7 +51,7 @@ public class MovingPart
         this.maxSpeed = speed;
     }
 
-    public void setRotationSpeed(float rotationSpeed) {
+    public void setRotationSpeed(double rotationSpeed) {
         this.rotationSpeed = rotationSpeed;
     }
 
@@ -67,12 +67,16 @@ public class MovingPart
         this.up = up;
     }
 
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
     @Override
     public void process(GameData gameData, Entity entity) {
         PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radians = positionPart.getRadians();
+        double x = positionPart.getX();
+        double y = positionPart.getY();
+        double radians = positionPart.getRadians();
         float dt = gameData.getDelta();
 
         // turning
