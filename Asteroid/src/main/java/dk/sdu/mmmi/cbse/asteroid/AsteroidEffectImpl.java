@@ -46,6 +46,7 @@ public class AsteroidEffectImpl implements IAsteroidEffect {
 
     private PositionPart newAsteroidPositions(PositionPart oldPosition, double newRadius){
         double newRadians = oldPosition.getRadians()-0.5;
+        oldPosition.setRadians(oldPosition.getRadians()+0.5);
         double by1 = sin(newRadians) * newRadius;
         double bx1 = cos(newRadians) * newRadius;
         return new PositionPart(oldPosition.getX() + bx1,

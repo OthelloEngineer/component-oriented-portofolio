@@ -22,8 +22,9 @@ public class AsteroidProcessor implements IEntityProcessingService {
             PositionPart positionPart = asteroid.getPart(PositionPart.class);
             MovingPart movingPart = asteroid.getPart(MovingPart.class);
             LifePart lifePart = asteroid.getPart(LifePart.class);
-            int numPoints = 12;
-            float baseSpeed = 30;
+            colorAsteroid(asteroid, lifePart);
+            int edges = lifePart.getLife()+2;
+            float baseSpeed = 80;
             double speed = baseSpeed*(6-lifePart.getLife());
             movingPart.setSpeed(speed);
             movingPart.setUp(true);
@@ -36,7 +37,7 @@ public class AsteroidProcessor implements IEntityProcessingService {
                 asteroidSplitter.createSplitAsteroid(asteroid, world);
             }
             lifePart.setIsHit(false);
-            setShape(asteroid, numPoints);
+            setShape(asteroid, edges);
         }
     }
     public void setAsteroidSplitter(IAsteroidEffect asteroidSplitter) {
@@ -47,7 +48,6 @@ public class AsteroidProcessor implements IEntityProcessingService {
         this.asteroidSplitter = null;
     }
 
-    //TODO random shapes
     private void setShape(Entity entity, int numPoints) {
         PositionPart position = entity.getPart(PositionPart.class);
         double[] shapex = new double[numPoints];
@@ -64,9 +64,17 @@ public class AsteroidProcessor implements IEntityProcessingService {
             shapey[i] = y + Math.sin(angle + radians) * radius;
             angle += 2 * 3.1415f / numPoints;
         }
-
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
     }
 
+    private void colorAsteroid(Entity entity, LifePart lifePart){
+        switch (lifePart.getLife()) {
+            case 1 -> entity.baseColor = Color.HONEYDEW;
+            case 2 -> entity.baseColor = Color.MISTYROSE;
+            case 3 -> entity.baseColor = Color.SNOW;
+            case 4 -> entity.baseColor = Color.BEIGE;
+            case 5 -> entity.baseColor = Color.AZURE;
+        }
+    }
 }
