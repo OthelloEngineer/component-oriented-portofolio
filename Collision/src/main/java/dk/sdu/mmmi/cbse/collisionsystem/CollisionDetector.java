@@ -20,6 +20,8 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 if (this.collides(entity, collisionDetection)) {
                     if (entityLife.getLife() > 0 && entityLife.getIFrames() <= 0) {
                         entityLife.setIsHit(true);
+                        //Lisp programming be like:
+                        ((LifePart)(collisionDetection.getPart(LifePart.class))).setIsHit(true);
                     }
                 }
             }

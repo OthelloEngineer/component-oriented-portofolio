@@ -10,7 +10,7 @@ public class LifePart implements EntityPart {
     private int life;
     private boolean isHit = false;
 
-    private double iFrameConstant = 5;
+    private double iFrameConstant = 2;
 
     private double iFrames;
 
@@ -46,7 +46,6 @@ public class LifePart implements EntityPart {
     @Override
     public void process(GameData gameData, Entity entity) {
         if (iFrames > 0){
-            System.out.println(iFrames);
             iFrames -= gameData.getDelta();
             isHit = false;
             return;

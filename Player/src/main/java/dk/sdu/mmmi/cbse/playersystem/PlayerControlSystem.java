@@ -39,7 +39,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
             lifePart.process(gameData, player);
-
+            if (lifePart.isHit()){
+                System.exit(1);
+            }
             updateShape(player);
 
         }
