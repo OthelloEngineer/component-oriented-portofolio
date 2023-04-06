@@ -80,7 +80,10 @@ public class Game
     private void draw() {
         for (Entity entity : world.getEntities()) {
 
-            sr.setColor(1, 1, 1, 1);
+            sr.setColor((float)entity.currentColor.r,
+                    (float)entity.currentColor.g,
+                    (float)entity.currentColor.b,
+                    (float)entity.currentColor.a);
 
             sr.begin(ShapeRenderer.ShapeType.Line);
 

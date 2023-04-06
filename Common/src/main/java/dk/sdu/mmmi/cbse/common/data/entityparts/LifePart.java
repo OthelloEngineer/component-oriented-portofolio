@@ -48,15 +48,18 @@ public class LifePart implements EntityPart {
         if (iFrames > 0){
             iFrames -= gameData.getDelta();
             isHit = false;
+            entity.currentColor = entity.iFrameColor;
             return;
         }
         if (isHit) {
             this.iFrames = iFrameConstant;
             life -= 1;
+            return;
         }
         if (life <= 0) {
             dead = true;
         }
+        entity.currentColor = entity.baseColor;
     }
 
     public void setIFrameConstant(double iFrameConstant) {

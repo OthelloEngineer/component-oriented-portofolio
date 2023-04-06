@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.enemysystem;
 
+import dk.sdu.mmmi.cbse.common.data.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -46,7 +47,9 @@ public class EnemyControlSystem implements IEntityProcessingService {
             lifePart.process(gameData, enemy);
 
             updateShape(enemy);
-
+            if (lifePart.isHit()){
+                world.removeEntity(enemy);
+            }
             movingPart.setRight(false);
             movingPart.setLeft(false);
             movingPart.setUp(false);

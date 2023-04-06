@@ -10,6 +10,12 @@ public class Entity implements Serializable {
 
     private final UUID ID = UUID.randomUUID();
 
+    public Color baseColor = Color.AZURE;
+
+    public Color currentColor = this.baseColor;
+
+    public Color iFrameColor = Color.GOLD;
+
     private double[] shapeX = new double[4];
     private double[] shapeY = new double[4];
     private double radius;

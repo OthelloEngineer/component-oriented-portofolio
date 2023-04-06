@@ -2,6 +2,7 @@ package dk.sdu.mmmi.cbse.asteroid;
 
 import dk.sdu.mmmi.cbse.common.asteroids.Asteroid;
 import dk.sdu.mmmi.cbse.common.asteroids.IAsteroidEffect;
+import dk.sdu.mmmi.cbse.common.data.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;

@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.enemysystem;
 
+import dk.sdu.mmmi.cbse.common.data.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -24,6 +25,7 @@ public class EnemyPlugin implements IGamePluginService {
 
         // Add entities to the world
         enemy = createEnemyShip(gameData);
+        enemy.baseColor = Color.RED;
         world.addEntity(enemy);
     }
 
@@ -44,7 +46,7 @@ public class EnemyPlugin implements IGamePluginService {
         colour[3] = 1.0f;
 
         Entity enemyShip = new Enemy();
-        enemyShip.setRadius(8);
+        enemyShip.setRadius(50);
         enemyShip.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemyShip.add(new PositionPart(x, y, radians));
         enemyShip.add(new LifePart(1));

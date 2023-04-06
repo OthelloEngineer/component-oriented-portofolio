@@ -2,6 +2,7 @@ package dk.sdu.mmmi.cbse.bulletsystem;
 
 import dk.sdu.mmmi.cbse.common.bullet.Bullet;
 import dk.sdu.mmmi.cbse.common.bullet.RunTimeInstantiatorService;
+import dk.sdu.mmmi.cbse.common.data.Color;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -45,7 +46,8 @@ public class BulletControlSystem implements IEntityProcessingService, RunTimeIns
         float speed = 350;
 
         Entity bullet = new Bullet();
-        bullet.setRadius(2);
+        bullet.currentColor = Color.VIOLET;
+        bullet.setRadius(10);
 
         double bx = cos(direction) * 8 * bullet.getRadius();
         double by = sin(direction) * 8 * bullet.getRadius();
