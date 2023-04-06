@@ -47,6 +47,7 @@ public class AsteroidProcessor implements IEntityProcessingService {
         this.asteroidSplitter = null;
     }
 
+    //TODO random shapes
     private void setShape(Entity entity, int numPoints) {
         PositionPart position = entity.getPart(PositionPart.class);
         double[] shapex = new double[numPoints];

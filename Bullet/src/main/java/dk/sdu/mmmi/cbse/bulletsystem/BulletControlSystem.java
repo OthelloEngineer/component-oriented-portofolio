@@ -35,7 +35,7 @@ public class BulletControlSystem implements IEntityProcessingService, RunTimeIns
             setShape(bullet);
         }
     }
-
+    //TODO increase range and shape
     @Override
     public Entity spawn(PositionPart shooterPart, GameData gameData) {
 
