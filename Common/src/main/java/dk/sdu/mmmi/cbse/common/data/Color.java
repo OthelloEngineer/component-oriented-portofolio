@@ -5,8 +5,6 @@ public enum Color {
     VIOLET(238,130,238,1), GOLD(255,215,0, 1), SNOW(255,250,250, 1),
     HONEYDEW(240,255,240,1), BEIGE(245,245,220, 1), MISTYROSE(255,228,225,1);
 
-
-
     final public double r;
     final public double g;
     final public double b;

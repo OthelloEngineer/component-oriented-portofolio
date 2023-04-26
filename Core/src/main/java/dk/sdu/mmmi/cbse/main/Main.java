@@ -7,7 +7,6 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import java.awt.*;
 
 public class Main {
-	
 	public static void main(String[] args) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.getWidth()*1.5;
@@ -22,7 +21,6 @@ public class Main {
 		config.setTitle("Asteroids");
 		config.setWindowSizeLimits(minWidth,minHeight,maxWidth,maxHeight);
 		config.setWindowedMode(minWidth, minHeight);
-
 		new Lwjgl3Application(new Game(), config);
 	}
 	
