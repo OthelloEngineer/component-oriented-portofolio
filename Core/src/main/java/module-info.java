@@ -4,10 +4,9 @@ module Core {
     requires CommonBullet;
     requires CommonAsteroids;
     requires java.desktop;
-    requires com.badlogic.gdx;   
+    requires com.badlogic.gdx;
     uses dk.sdu.mmmi.cbse.common.services.IGamePluginService;
     uses dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
     uses dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+    uses dk.sdu.mmmi.cbse.common.services.MapService;
 }
-
-

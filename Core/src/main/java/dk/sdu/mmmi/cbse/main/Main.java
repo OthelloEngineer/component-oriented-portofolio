@@ -8,11 +8,8 @@ import java.awt.*;
 
 public class Main {
 	public static void main(String[] args) {
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		double width = screenSize.getWidth()*1.5;
-		double height = screenSize.getHeight()*1.5;
-		System.out.println(width);
-		System.out.println(height);
+		double width = 1980;
+		double height = 1080;
 		int maxWidth = (int)(width);
 		int maxHeight = (int)(height);
 		int minWidth = (int)(width);

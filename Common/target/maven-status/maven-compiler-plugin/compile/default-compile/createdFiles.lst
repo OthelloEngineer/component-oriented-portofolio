@@ -7,6 +7,7 @@ dk\sdu\mmmi\cbse\common\services\IEntityProcessingService.class
 dk\sdu\mmmi\cbse\common\data\entityparts\LifePart.class
 dk\sdu\mmmi\cbse\common\data\Entity.class
 dk\sdu\mmmi\cbse\common\events\Event.class
+dk\sdu\mmmi\cbse\common\services\MapService.class
 dk\sdu\mmmi\cbse\common\data\GameData.class
 module-info.class
 dk\sdu\mmmi\cbse\common\data\entityparts\MovingPart.class

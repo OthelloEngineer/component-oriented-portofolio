@@ -1,10 +1,15 @@
 package dk.sdu.mmmi.cbse.main;
 
-import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -12,34 +17,39 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.services.MapService;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.ServiceLoader;
 import static java.util.stream.Collectors.toList;
 
-public class Game
-        implements ApplicationListener {
+public class Game extends ApplicationAdapter {
 
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
 
+    SpriteBatch batch;
+
     private final GameData gameData = new GameData();
     private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
     private List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
+    private TextureRegion map;
     private World world = new World();
 
     @Override
     public void create() {
-
-        gameData.setDisplayWidth(Gdx.graphics.getWidth());
-        gameData.setDisplayHeight(Gdx.graphics.getHeight());
-
+        batch = new SpriteBatch();
+        gameData.setDisplayWidth(1980);
+        gameData.setDisplayHeight(1080);
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();
-
+        setAdjustedMap();
+        Gdx.gl.glLineWidth(12);
         sr = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(
@@ -52,6 +62,14 @@ public class Game
         }
     }
 
+    private void setAdjustedMap(){
+        Texture texture = new Texture(getMapServices().getMap());
+        TextureRegion region = new TextureRegion(texture, 0, 0, gameData.getDisplayWidth(), gameData.getDisplayHeight());
+        region.setTexture(texture);
+        map = region;
+        Gdx.audio.newMusic(new FileHandle(getMapServices().getSoundTrack())).play();
+    }
+
     @Override
     public void render() {
 
@@ -61,10 +79,17 @@ public class Game
         gameData.setDelta(Gdx.graphics.getDeltaTime());
 
         update();
-
+        batch.begin();
+        drawBackground();
+        batch.end();
         draw();
 
         gameData.getKeys().update();
+
+    }
+
+    private void drawBackground(){
+        batch.draw(map, 0, 0);
     }
 
     private void update() {
@@ -84,9 +109,7 @@ public class Game
                     (float)entity.currentColor.g,
                     (float)entity.currentColor.b,
                     (float)entity.currentColor.a);
-
             sr.begin(ShapeRenderer.ShapeType.Line);
-
             double[] shapex = entity.getShapeX();
             double[] shapey = entity.getShapeY();
 
@@ -115,6 +138,7 @@ public class Game
 
     @Override
     public void dispose() {
+        batch.dispose();
     }
 
     private Collection<? extends IGamePluginService> getPluginServices() {
@@ -125,7 +149,10 @@ public class Game
         return ServiceLoader.load(IEntityProcessingService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
     }
     
-       private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
+    private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
         return ServiceLoader.load(IPostEntityProcessingService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
+    }
+    private MapService getMapServices() {
+        return ServiceLoader.load(MapService.class).findFirst().get();
     }
 }
