@@ -23,16 +23,16 @@
     <repositories>
         <repository>
             <id>github</id>
-            <name>GitHub sweat-tek Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/sweat-tek/ShadedLibGDX</url>
+            <name>GitHub OthelloEngineer Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/OthelloEngineer/ShadedLibGDXExportimusPrime</url>
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>dk.sdu.mmmi.cbse</groupId>
+            <groupId>dk.sdu.othello</groupId>
             <artifactId>shadedlibgdx</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>dk.sdu.mmmi.cbse</groupId>
@@ -81,7 +81,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>dk.sdu.mmmi.cbse</groupId>
+                                    <groupId>dk.sdu.othello</groupId>
                                     <artifactId>shadedlibgdx</artifactId>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>../libs</outputDirectory>

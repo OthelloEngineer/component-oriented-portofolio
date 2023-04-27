@@ -21,6 +21,7 @@
         <module>CommonAsteroids</module>
         <module>Bullet</module>
         <module>Enemy</module>
+        <module>CoolMap</module>
     </modules>
     <properties>
         <java>java</java>
@@ -32,9 +33,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>dk.sdu.mmmi.cbse</groupId>
+                <groupId>dk.sdu.othello</groupId>
                 <artifactId>shadedlibgdx</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>1.0.2-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -90,7 +91,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <!-- parent project should delete 'mods-mvn' -->

@@ -13,6 +13,7 @@
         <module name="Collision" />
         <module name="CommonAsteroids" />
         <module name="Enemy" />
+        <module name="CoolMap" />
         <module name="CommonBullet" />
         <module name="Common" />
         <module name="Core" />
@@ -21,5 +22,10 @@
     <bytecodeTargetLevel>
       <module name="portofolio-project" target="19" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Core" options="" />
+    </option>
   </component>
 </project>
