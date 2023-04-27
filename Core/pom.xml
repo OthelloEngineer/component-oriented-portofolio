@@ -81,7 +81,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>dk.sdu.mmmi.cbse</groupId>
+                                    <groupId>dk.sdu.othello</groupId>
                                     <artifactId>shadedlibgdx</artifactId>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>../libs</outputDirectory>
