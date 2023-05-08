@@ -1,4 +1,6 @@
 dk\sdu\mmmi\cbse\main\Game.class
+dk\sdu\mmmi\cbse\main\ImplementationLocator.class
 dk\sdu\mmmi\cbse\managers\GameInputProcessor.class
 module-info.class
+dk\sdu\mmmi\cbse\main\GameConfig.class
 dk\sdu\mmmi\cbse\main\Main.class

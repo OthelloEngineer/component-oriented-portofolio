@@ -54,6 +54,11 @@
             <artifactId>CommonAsteroids</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.0.6</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

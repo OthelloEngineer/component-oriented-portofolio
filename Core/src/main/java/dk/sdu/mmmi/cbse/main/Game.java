@@ -20,7 +20,10 @@ import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.MapService;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
 
-import java.awt.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -35,10 +38,13 @@ public class Game extends ApplicationAdapter {
     SpriteBatch batch;
 
     private final GameData gameData = new GameData();
-    private List<IEntityProcessingService> entityProcessors = new ArrayList<>();
-    private List<IPostEntityProcessingService> postEntityProcessors = new ArrayList<>();
+    private ImplementationLocator implementationLocator;
     private TextureRegion map;
     private World world = new World();
+
+    public Game() {
+        super();
+    }
 
     @Override
     public void create() {
@@ -57,17 +63,17 @@ public class Game extends ApplicationAdapter {
         );
 
         // Lookup all Game Plugins using ServiceLoader
-        for (IGamePluginService iGamePlugin : getPluginServices()) {
+        for (IGamePluginService iGamePlugin : implementationLocator.getPluginServices()) {
             iGamePlugin.start(gameData, world);
         }
     }
 
     private void setAdjustedMap(){
-        Texture texture = new Texture(getMapServices().getMap());
+        Texture texture = new Texture(implementationLocator.getMapServices().getMap());
         TextureRegion region = new TextureRegion(texture, 0, 0, gameData.getDisplayWidth(), gameData.getDisplayHeight());
         region.setTexture(texture);
         map = region;
-        Gdx.audio.newMusic(new FileHandle(getMapServices().getSoundTrack())).play();
+        Gdx.audio.newMusic(new FileHandle(implementationLocator.getMapServices().getSoundTrack())).play();
     }
 
     @Override
@@ -94,10 +100,10 @@ public class Game extends ApplicationAdapter {
 
     private void update() {
         // Update
-        for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
+        for (IEntityProcessingService entityProcessorService : implementationLocator.getEntityProcessingServices()) {
             entityProcessorService.process(gameData, world);
         }
-         for (IPostEntityProcessingService postEntityProcessorService : getPostEntityProcessingServices()) {
+         for (IPostEntityProcessingService postEntityProcessorService : implementationLocator.getPostEntityProcessingServices()) {
             postEntityProcessorService.process(gameData, world);
         }
     }
@@ -141,18 +147,9 @@ public class Game extends ApplicationAdapter {
         batch.dispose();
     }
 
-    private Collection<? extends IGamePluginService> getPluginServices() {
-        return ServiceLoader.load(IGamePluginService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
+    @Autowired
+    public void setImplementationLocator(ImplementationLocator implementationLocator) {
+        this.implementationLocator = implementationLocator;
     }
 
-    private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
-        return ServiceLoader.load(IEntityProcessingService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
-    }
-    
-    private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
-        return ServiceLoader.load(IPostEntityProcessingService.class).stream().map(ServiceLoader.Provider::get).collect(toList());
-    }
-    private MapService getMapServices() {
-        return ServiceLoader.load(MapService.class).findFirst().get();
-    }
 }

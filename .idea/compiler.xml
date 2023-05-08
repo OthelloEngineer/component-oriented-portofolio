@@ -20,6 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CommonOSTMap" target="19" />
       <module name="portofolio-project" target="19" />
     </bytecodeTargetLevel>
   </component>

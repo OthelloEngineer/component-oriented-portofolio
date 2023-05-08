@@ -32,11 +32,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>dk.sdu.othello</groupId>
-                <artifactId>shadedlibgdx</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>

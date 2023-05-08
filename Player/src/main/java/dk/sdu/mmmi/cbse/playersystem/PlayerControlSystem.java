@@ -43,7 +43,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
                 System.exit(1);
             }
             updateShape(player);
-
         }
     }
 
