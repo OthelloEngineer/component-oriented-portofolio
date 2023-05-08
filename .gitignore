@@ -1,0 +1,4 @@
+mods-mvn/*
+libs/*
+*.class
+*.jar
