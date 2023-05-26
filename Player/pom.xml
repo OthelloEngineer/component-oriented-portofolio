@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>dk.sdu.mmmi.cbse</groupId>
-        <artifactId>asteroids.jpms</artifactId>
+        <artifactId>cool-asteroid</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>Player</artifactId>

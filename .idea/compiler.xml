@@ -20,6 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="asteroids.jpms" target="9" />
       <module name="CommonOSTMap" target="19" />
       <module name="portofolio-project" target="19" />
     </bytecodeTargetLevel>

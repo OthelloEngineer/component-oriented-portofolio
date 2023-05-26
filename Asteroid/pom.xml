@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>dk.sdu.mmmi.cbse</groupId>
-        <artifactId>asteroids.jpms</artifactId>
+        <artifactId>cool-asteroid</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>Asteroid</artifactId>
@@ -20,6 +20,29 @@
             <groupId>dk.sdu.mmmi.cbse</groupId>
             <artifactId>Common</artifactId>
             <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>4.6.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

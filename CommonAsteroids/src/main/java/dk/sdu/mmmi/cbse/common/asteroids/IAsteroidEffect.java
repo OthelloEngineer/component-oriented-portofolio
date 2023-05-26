@@ -5,5 +5,5 @@ import dk.sdu.mmmi.cbse.common.data.World;
 
   
 public interface IAsteroidEffect {
-    void createSplitAsteroid(Entity e, World w);
+    boolean createSplitAsteroid(Entity e, World w);
 }

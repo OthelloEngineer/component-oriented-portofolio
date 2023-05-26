@@ -13,7 +13,7 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 
 public class AsteroidProcessor implements IEntityProcessingService {
 
-    private IAsteroidEffect asteroidSplitter = new AsteroidEffectImpl();
+    private IAsteroidEffect asteroidSplitter = new AsteroidSplitter();
 
     @Override
     public void process(GameData gameData, World world) {
@@ -32,20 +32,13 @@ public class AsteroidProcessor implements IEntityProcessingService {
             movingPart.process(gameData, asteroid);
             positionPart.process(gameData, asteroid);
             lifePart.process(gameData, asteroid);
-            // Split event
+
             if (lifePart.isHit()) {
                 asteroidSplitter.createSplitAsteroid(asteroid, world);
             }
             lifePart.setIsHit(false);
             setShape(asteroid, edges);
         }
-    }
-    public void setAsteroidSplitter(IAsteroidEffect asteroidSplitter) {
-        this.asteroidSplitter = asteroidSplitter;
-    }
-
-    public void removeAsteroidSplitter(IAsteroidEffect asteroidSplitter) {
-        this.asteroidSplitter = null;
     }
 
     private void setShape(Entity entity, int numPoints) {
