@@ -1,0 +1,24 @@
+@startuml
+
+component CommonAsteroid{
+    class "Asteroid" as CoolAsteroid{}
+    interface IAsteroidEffect{
+    +void createSplitAsteroid(Entity e, World world)
+    }
+}
+component Asteroid{
+    class AsteroidPlugin{
+    +void start()
+    +void stop()
+    }
+    class AsteroidController{
+    +void update()
+    }
+    class AsteroidSplitter{
+    }
+}
+AsteroidController --> AsteroidSplitter
+AsteroidSplitter .u.|> IAsteroidEffect
+AsteroidPlugin -u-> CoolAsteroid
+AsteroidController -u-> CoolAsteroid
+@enduml
