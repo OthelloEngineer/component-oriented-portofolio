@@ -1,0 +1,27 @@
+@startuml
+actor player as p
+
+rectangle "Game" {
+  usecase "Start Game" as start
+  usecase "Quit Game" as quit
+  usecase "shoot" as shoot
+  usecase "move player" as move
+  usecase "die as a player" as die
+}
+'adjust the usecases inside Game rectangle vertically'
+rectangle "component"{
+ usecase remove as "remove component
+ ..Conclusion..
+ game still runs without the functionality of the affected component"
+}
+
+'please format this better'
+p -u-> start
+p -u-> quit
+p -u-> shoot
+p -u-> move
+p -u-> die
+p -d-> remove
+die -d-> quit
+
+@enduml
