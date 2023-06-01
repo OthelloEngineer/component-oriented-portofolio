@@ -17,7 +17,6 @@ public class PlayerPlugin implements IGamePluginService {
 
     @Override
     public void start(GameData gameData, World world) {
-
         // Add entities to the world
         player = createPlayerShip(gameData);
         player.baseColor = Color.GREEN;
@@ -25,7 +24,6 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayerShip(GameData gameData) {
-
         float deacceleration = 10;
         float acceleration = 200;
         float maxSpeed = 300;
@@ -48,5 +46,4 @@ public class PlayerPlugin implements IGamePluginService {
         // Remove entities
         world.removeEntity(player);
     }
-
 }

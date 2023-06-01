@@ -1,0 +1,15 @@
+@startuml
+component "player"{
+ class "Player" as Player
+ class PlayerControlSystem {
+ + void process()
+ }
+ class PlayerPlugin{
+ + void start()
+ + void stop()
+ }
+ PlayerControlSystem -down-> Player: updates
+ PlayerPlugin -down-> Player: instantiates
+}
+
+@enduml

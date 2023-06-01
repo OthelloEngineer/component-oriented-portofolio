@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>dk.sdu.mmmi.cbse</groupId>
-        <artifactId>asteroids.jpms</artifactId>
+        <artifactId>cool-asteroid</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
     <groupId>dk.sdu.cbse.asteroids</groupId>
@@ -53,6 +53,11 @@
             <groupId>dk.sdu.mmmi.cbse</groupId>
             <artifactId>CommonAsteroids</artifactId>
             <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.0.6</version>
         </dependency>
     </dependencies>
     <build>
