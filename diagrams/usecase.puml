@@ -22,6 +22,6 @@ p -u-> shoot
 p -u-> move
 p -u-> die
 p -d-> remove
-die -d-> quit
+die -d-> quit: <<include>>
 
 @enduml

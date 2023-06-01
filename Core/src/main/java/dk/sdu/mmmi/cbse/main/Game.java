@@ -125,7 +125,6 @@ public class Game extends ApplicationAdapter {
 
                 sr.line((float)shapex[i], (float)shapey[i], (float)shapex[j], (float)shapey[j]);
             }
-
             sr.end();
         }
     }
